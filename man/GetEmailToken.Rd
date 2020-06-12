@@ -27,6 +27,7 @@ In order to keep your credential safe, it is recommended that you save your user
 password as "environment variables".
 }
 \examples{
+\dontrun{
 my_central_url <- "https://myrandomurl.com"
 my_central_email <- Sys.getenv("odk_username")
 my_central_password <- Sys.getenv("odk_password")
@@ -34,5 +35,5 @@ my_central_password <- Sys.getenv("odk_password")
 token<-GetEmailToken(central_url=my_central_url,
                      central_email = my_central_email,
                      central_password = my_central_password)
-
+}
 }

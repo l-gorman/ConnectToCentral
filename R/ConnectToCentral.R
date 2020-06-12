@@ -17,6 +17,7 @@
 #' @return This function will return a token. This token is useful for
 #'
 #' @examples
+#' \dontrun{
 #' my_central_url <- "https://myrandomurl.com"
 #' my_central_email <- Sys.getenv("odk_username")
 #' my_central_password <- Sys.getenv("odk_password")
@@ -24,7 +25,7 @@
 #' token<-GetEmailToken(central_url=my_central_url,
 #'                      central_email = my_central_email,
 #'                      central_password = my_central_password)
-#'
+#'}
 #'@importFrom httr "POST" "handle" "add_headers" "content"
 #'@export
 GetEmailToken<-function(central_url, central_email, central_password){
@@ -61,6 +62,7 @@ GetEmailToken<-function(central_url, central_email, central_password){
 #'@return This will return a list of Users on the desired ODK central server.
 #'
 #'@examples
+#' \dontrun{
 #' my_central_url <- "https://myrandomurl.com"
 #' my_central_email <- Sys.getenv("odk_username")
 #' my_central_password <- Sys.getenv("odk_password")
@@ -71,6 +73,7 @@ GetEmailToken<-function(central_url, central_email, central_password){
 #'
 #' my_list_of_users <- ListUsers(central_url = my_central_url,
 #'                               email_token = my_token)
+#'}
 #'@importFrom httr "GET" "add_headers"
 #'@importFrom data.table "rbindlist"
 #'@export
@@ -82,77 +85,77 @@ ListUsers<-function(central_url, email_token){
   return(user_data_frame)
 }
 
-####----------------------------------------------------------------------------------------------------
-#' List the AppUsers within a given ODK Central Project
+#' ####----------------------------------------------------------------------------------------------------
+#' #' List the AppUsers within a given ODK Central Project
+#' #'
+#' #' @return
+#' #' @export
+#' #'
+#' #' @examples
+#' ListAppUsers<-function(){
 #'
-#' @return
-#' @export
+#' }
+#' ####----------------------------------------------------------------------------------------------------
+#' #' List the Projects on an ODK Central Server
+#' #'
+#' #' @return
+#' #' @export
+#' #'
+#' #' @examples
+#' ListProjects<-function(){
 #'
-#' @examples
-ListAppUsers<-function(){
-
-}
-####----------------------------------------------------------------------------------------------------
-#' List the Projects on an ODK Central Server
+#' }
+#' ####----------------------------------------------------------------------------------------------------
+#' #' List the Names of AppUsers within a given ODK Central Project
+#' #'
+#' #' @return
+#' #' @export
+#' #'
+#' #' @examples
+#' ListAppUserNames<-function(){
 #'
-#' @return
-#' @export
+#' }
+#' ####----------------------------------------------------------------------------------------------------
+#' #' List the Tokens of AppUsers within a given ODK Central Project
+#' #'
+#' #' @return
+#' #' @export
+#' #'
+#' #' @examples
+#' ListAppUserTokens<-function(){
 #'
-#' @examples
-ListProjects<-function(){
-
-}
-####----------------------------------------------------------------------------------------------------
-#' List the Names of AppUsers within a given ODK Central Project
+#' }
+#' ####----------------------------------------------------------------------------------------------------
+#' #' List the Tokens of AppUsers within a given ODK Central Project
+#' #'
+#' #' @return
+#' #' @export
+#' #'
+#' #' @examples
+#' ListAppUserTokens<-function(){
 #'
-#' @return
-#' @export
+#' }
+#' ####----------------------------------------------------------------------------------------------------
+#' #' Generate AppUser URL
+#' #'
+#' #' @return
+#' #' @export
+#' #'
+#' #' @examples
+#' GetAppUserURL<-function(){
 #'
-#' @examples
-ListAppUserNames<-function(){
-
-}
-####----------------------------------------------------------------------------------------------------
-#' List the Tokens of AppUsers within a given ODK Central Project
+#' }
+#' ####----------------------------------------------------------------------------------------------------
+#' #' Generate AppUser QR Code
+#' #'
+#' #' @return
+#' #' @export
+#' #'
+#' #' @examples
+#' GetAppUserQRCode<-function(){
 #'
-#' @return
-#' @export
-#'
-#' @examples
-ListAppUserTokens<-function(){
-
-}
-####----------------------------------------------------------------------------------------------------
-#' List the Tokens of AppUsers within a given ODK Central Project
-#'
-#' @return
-#' @export
-#'
-#' @examples
-ListAppUserTokens<-function(){
-
-}
-####----------------------------------------------------------------------------------------------------
-#' Generate AppUser URL
-#'
-#' @return
-#' @export
-#'
-#' @examples
-GetAppUserURL<-function(){
-
-}
-####----------------------------------------------------------------------------------------------------
-#' Generate AppUser QR Code
-#'
-#' @return
-#' @export
-#'
-#' @examples
-GetAppUserQRCode<-function(){
-
-}
-####----------------------------------------------------------------------------------------------------
+#' }
+#' ####----------------------------------------------------------------------------------------------------
 
 
 

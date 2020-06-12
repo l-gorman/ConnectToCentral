@@ -17,7 +17,7 @@
 #' @return This function will return a token. This token is useful for
 #'
 #' @examples
-#' my_central_url <- "https://lgormanodk.co.uk"
+#' my_central_url <- "https://myrandomurl.com"
 #' my_central_email <- Sys.getenv("odk_username")
 #' my_central_password <- Sys.getenv("odk_password")
 #'
@@ -52,11 +52,26 @@ GetEmailToken<-function(central_url, central_email, central_password){
 #' List the Users listed on an ODK Central Server
 #'
 #' ODK Central has a "Users" and "AppUsers". Users can be assigned roles, such as project manager.
-#' They can
-#' @return
-#' @export
+#' To become a user you will need to contact the server administrator.
+#' In order for this function to work, you will need to get a connection token. See example below
 #'
-#' @examples
+#'@param central_url The url which pounts to an ODK Central sever
+#'@param email_token The email linked to your odk central account
+#'@return This will return a list of Users on the desired ODK central server.
+#'
+#'@examples
+#' my_central_url <- "https://myrandomurl.com"
+#' my_central_email <- Sys.getenv("odk_username")
+#' my_central_password <- Sys.getenv("odk_password")
+#'
+#' my_token <- GetEmailToken(central_url = my_central_url,
+#'                      central_email = my_central_email,
+#'                      central_password = my_central_password)
+#'
+#' my_list_of_users <- ListUsers(central_url = my_central_url,
+#'                               email_token = my_token)
+#'@export
+#'
 ListUsers<-function(central_url, email_token){
 
 }

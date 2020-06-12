@@ -49,10 +49,11 @@ GetEmailToken<-function(central_url, central_email, central_password){
   return(token)
 }
 ####----------------------------------------------------------------------------------------------------
-#' List the Users listed on an ODK Central Server
+#' Retrieve a DataFrame of the Users listed on an ODK Central Server
 #'
 #' ODK Central has a "Users" and "AppUsers". Users can be assigned roles, such as project manager.
-#' To become a user you will need to contact the server administrator.
+#' This function will only be available to administrators. Contact the server administrator in order
+#' to gain the correct priveleges.
 #' In order for this function to work, you will need to get a connection token. See example below
 #'
 #'@param central_url The url which pounts to an ODK Central sever
@@ -70,11 +71,17 @@ GetEmailToken<-function(central_url, central_email, central_password){
 #'
 #' my_list_of_users <- ListUsers(central_url = my_central_url,
 #'                               email_token = my_token)
+#'@importFrom httr "GET" "add_headers"
+#'@importFrom data.table "rbindlist"
 #'@export
-#'
 ListUsers<-function(central_url, email_token){
 
+  user_response <- GET(paste0(central_url,"/v1/users/"),
+                       add_headers(Authorization=paste0("Bearer ",email_token)))
+  user_data_frame<-rbindlist(content(user_response), fill=TRUE)
+  return(user_data_frame)
 }
+
 ####----------------------------------------------------------------------------------------------------
 #' List the AppUsers within a given ODK Central Project
 #'
